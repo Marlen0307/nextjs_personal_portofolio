@@ -20,4 +20,9 @@ export const pages: SitePages[] = [
     slug: "/blog",
     type: 'link'
   },
+  {
+    name: "Experience",
+    slug: "/experience",
+    type: 'link'
+  },
 ];
