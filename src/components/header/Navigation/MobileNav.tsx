@@ -1,4 +1,4 @@
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Drawer,
   DrawerBody,
@@ -14,6 +14,8 @@ import Logo from "../Logo";
 
 export default function MobileNav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef()
+
 
   return (
     <Hide above="lg">
@@ -22,12 +24,24 @@ export default function MobileNav() {
         icon={<HamburgerIcon />}
         variant="outline"
         onClick={onOpen}
+        ref={btnRef}
       />
       <Drawer placement={"left"} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerHeader borderBottomWidth="1px">
+          <DrawerHeader
+            borderBottomWidth="1px"
+            display={"flex"}
+            justifyContent={"space-between"}
+          >
             <Logo />
+            <IconButton
+              border={0}
+              aria-label="Close Mobile Navigation Bar"
+              onClick={onClose}
+              icon={<CloseIcon />}
+              variant={"outline"}
+            />
           </DrawerHeader>
           <DrawerBody>
             <p>Some contents...</p>
