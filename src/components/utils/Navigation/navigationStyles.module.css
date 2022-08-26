@@ -15,6 +15,9 @@
     transform-origin: bottom right;
     transition: transform 0.30s ease-out;
 }
+.navItem:hover{
+    cursor: pointer;
+}
 
 .navItem:hover:after {
     transform: scaleX(1);

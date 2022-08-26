@@ -9,20 +9,19 @@ import navStyles from "./navigationStyles.module.css";
 export default function NavigationItem({ href, label }: NavItemProps) {
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === "dark";
-  //todo: add styling to nav itms
   return (
-    <Box
-      mx={5}
-      fontSize={"lg"}
-      className={navStyles.navItem}
-      sx={{
-        _after: {
-          backgroundColor: isDark ? "#fff" : "#000",
-        },
-      }}
-    >
+    <Box mx={5} my={{ base: 5, md: 0 }} fontSize={"lg"}>
       <Link href={href}>
-        <Text fontWeight={600} letterSpacing={1.5}>
+        <Text
+          className={navStyles.navItem}
+          sx={{
+            _after: {
+              backgroundColor: isDark ? "#fff" : "#000",
+            },
+          }}
+          fontWeight={600}
+          letterSpacing={1.5}
+        >
           {label}
         </Text>
       </Link>

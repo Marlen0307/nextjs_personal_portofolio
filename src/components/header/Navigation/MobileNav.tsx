@@ -5,17 +5,19 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
+  Flex,
   Hide,
   IconButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { Children } from "react";
+import { pages, SitePages } from "../../../config/pages";
+import NavigationItem from "../../utils/Navigation/NavigationItem";
 import Logo from "../Logo";
 
 export default function MobileNav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef()
-
+  const btnRef = React.useRef();
 
   return (
     <Hide above="lg">
@@ -44,9 +46,13 @@ export default function MobileNav() {
             />
           </DrawerHeader>
           <DrawerBody>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
+            <Flex direction={"column"}>
+              {Children.toArray(
+                pages.map((page: SitePages) => (
+                  <NavigationItem href={page.slug} label={page.name} />
+                ))
+              )}
+            </Flex>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
