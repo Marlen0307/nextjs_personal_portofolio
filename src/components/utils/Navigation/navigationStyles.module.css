@@ -1,0 +1,25 @@
+.navItem {
+    display: inline-block;
+    position: relative;
+}
+
+.navItem:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    /* background-color: inherit; */
+    transform-origin: bottom right;
+    transition: transform 0.30s ease-out;
+}
+.navItem:hover{
+    cursor: pointer;
+}
+
+.navItem:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
