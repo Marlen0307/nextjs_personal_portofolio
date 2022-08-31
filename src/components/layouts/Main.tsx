@@ -8,7 +8,7 @@ export default function Main({ children }) {
     <>
       <Header />
 
-      <Container maxWidth={"container.lg"} pt={14}>
+      <Container maxWidth={"container.xl"} pt={14}>
         {children}
       </Container>
       <Footer />
