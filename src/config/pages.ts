@@ -16,13 +16,13 @@ export const pages: SitePages[] = [
     type: 'link'
   },
   {
-    name: "Blog",
-    slug: "/blog",
+    name: "Experience",
+    slug: "/experience",
     type: 'link'
   },
   {
-    name: "Experience",
-    slug: "/experience",
+    name: "Blog",
+    slug: "/blog",
     type: 'link'
   },
 ];

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
+import layoutStyles from './layout.module.css';
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -15,7 +16,7 @@ const Layout = ({ children }) => {
       exit="exit"
       variants={variants}
       transition={{ duration: 0.4, type: "easeInOut" }}
-      style={{ position: "relative" }}
+      className = {layoutStyles.mainArticle}
     >
       {children}
     </motion.article>
