@@ -1,7 +1,8 @@
 import { Box, Heading, Text, useColorModeValue } from "@chakra-ui/react";
 import Image from "next/image";
 import Layout from "../components/layouts/article";
-import heroImg from "../public/bighead.svg";
+import MainPageSections from "../components/MainPage/Sections";
+import ProgressSectionCard from "../components/utils/UiComponents/ProgressSection";
 
 const Index = () => {
   const color = useColorModeValue("telegram.500", "telegram.400");
@@ -9,7 +10,12 @@ const Index = () => {
   return (
     <>
       <Box display={"flex"} justifyContent={"center"}>
-        <Image src={heroImg} width="350" height="350" />
+        <Image
+          src={"/images/bighead.svg"}
+          alt={"test"}
+          width="350"
+          height="350"
+        />
       </Box>
       <Layout>
         <Heading
@@ -47,6 +53,7 @@ const Index = () => {
           based in Albania, I specialize on building scalable and maintainable
           web and mobile applications.
         </Text>
+        <MainPageSections />
       </Layout>
     </>
   );
