@@ -1,0 +1,9 @@
+.seperatedContainer {
+    margin-top: 30px;
+}
+
+@media (max-width:52em) {
+    .seperatedContainer{
+        margin-top: 60px;
+    }
+}
