@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { Text, useColorModeValue } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import progressBarStyles from "../progressStyles.module.css";
@@ -13,6 +13,7 @@ export default function AnimatedProgressBar({
   progressBarVal,
 }: AnimatedProgressBarProps) {
   const [animate, setAnimate] = useState<boolean>(false);
+  const color = useColorModeValue("telegram.500", "telegram.400");
 
   const toggle = () => setAnimate((prev) => !prev);
   return (
@@ -21,28 +22,27 @@ export default function AnimatedProgressBar({
       onViewportEnter={toggle}
       onViewportLeave={toggle}
     >
-      <>
-        {animate && (
-          <motion.div className={progressBarStyles.bar}>
-            <div className={progressBarStyles.info}>
-              <span>{label}</span>
-            </div>
-            <div
-              className={`${progressBarStyles.progressLine} ${progressBarStyles.html}`}
-            >
-              <Text
-                as={"span"}
-                sx={{
-                  width: progressBarVal,
-                  _after: {
-                    content: `"${progressBarVal}"`,
-                  },
-                }}
-              ></Text>
-            </div>
-          </motion.div>
-        )}
-      </>
+      <div className={progressBarStyles.bar}>
+        <div className={progressBarStyles.info}>
+          <span>{label}</span>
+        </div>
+        <div
+          className={`${progressBarStyles.progressLine} ${progressBarStyles.html}`}
+        >
+          {animate && (
+            <Text
+              as={"span"}
+              sx={{
+                width: animate ? progressBarVal : 0,
+                backgroundColor: color,
+                _after: {
+                  content: `"${progressBarVal }"`,
+                },
+              }}
+            ></Text>
+          )}
+        </div>
+      </div>
     </motion.div>
   );
 }

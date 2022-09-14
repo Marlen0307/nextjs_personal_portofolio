@@ -9,6 +9,11 @@
   background: #fff;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
   border-radius: 10px;
+  transition: all .3s ease-in-out;
+}
+.skillBars:hover {
+  box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
+  transform: translate3d(0px, -1px, 0px);
 }
 .skillBars .bar{
   margin: 20px 0;
@@ -53,27 +58,11 @@
   border-radius: 10px;
   transform: scaleX(0);
   transform-origin: left;
-  background: #6665ee;
+  /* background: #6665ee; */
   animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
-}
-.bar .progressLine.html span{
-  width: 90%;
-}
-.bar .progressLine.css span{
-  width: 60%;
-}
-.bar .progressLine.jquery span{
-  width: 85%;
-}
-.bar .progressLine.python span{
-  width: 50%;
-}
-.bar .progressLine.mysql span{
-  width: 75%;
 }
 .progressLine span::before{
   position: absolute;
-  content: "";
   top: -10px;
   right: 0;
   height: 0;
@@ -102,19 +91,4 @@
   100%{
     opacity: 1;
   }
-}
-.progressLine.html span::after{
-  content: "90%";
-}
-.progressLine.css span::after{
-  content: "60%";
-}
-.progressLine.jquery span::after{
-  content: "85%";
-}
-.progressLine.python span::after{
-  content: "50%";
-}
-.progressLine.mysql span::after{
-  content: "75%";
 }
