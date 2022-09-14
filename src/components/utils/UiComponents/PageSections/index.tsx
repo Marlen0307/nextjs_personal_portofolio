@@ -27,10 +27,12 @@ export default function LandingPageSection({
       alignItems={{ lg: "center" }}
       flexDirection={isOdd(index) ? ["row-reverse"] : undefined}
       gap={5}
+      my={5}
     >
       <Box
-        width={{ base: "80%", lg: "35%" }}
+        width={{ base: "100%",sm: '80%',lg: "40%" }}
         mx={{ base: "auto", lg: "0" }}
+        my={{ base: 5, lg: 0 }}
         paddingRight={{ ...(isOdd(index) && { lg: "10" }) }}
         paddingLeft={{ ...(isOdd(index) && { lg: "10" }) }}
       >

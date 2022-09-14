@@ -1,4 +1,4 @@
-import { Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Text, useColorModeValue } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import progressBarStyles from "../progressStyles.module.css";
@@ -22,10 +22,12 @@ export default function AnimatedProgressBar({
       onViewportEnter={toggle}
       onViewportLeave={toggle}
     >
-      <div className={progressBarStyles.bar}>
-        <div className={progressBarStyles.info}>
-          <span>{label}</span>
-        </div>
+      <Box className={progressBarStyles.bar}>
+        <Box className={progressBarStyles.info}>
+          <Text as="span" textTransform={"uppercase"}>
+            {label}
+          </Text>
+        </Box>
         <div
           className={`${progressBarStyles.progressLine} ${progressBarStyles.html}`}
         >
@@ -36,13 +38,13 @@ export default function AnimatedProgressBar({
                 width: animate ? progressBarVal : 0,
                 backgroundColor: color,
                 _after: {
-                  content: `"${progressBarVal }"`,
+                  content: `"${progressBarVal}"`,
                 },
               }}
             ></Text>
           )}
         </div>
-      </div>
+      </Box>
     </motion.div>
   );
 }
