@@ -6,7 +6,6 @@
 .skillBars{
   padding: 25px 30px;
   width: 100%;
-  background: #fff;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
   border-radius: 10px;
   transition: all .3s ease-in-out;
@@ -38,7 +37,6 @@
 .skillBars .bar .progressLine{
   height: 10px;
   width: 100%;
-  background: #f0f0f0;
   position: relative;
   transform: scaleX(0);
   transform-origin: left;
