@@ -26,6 +26,7 @@ export default function LandingPageSection({
       justifyContent={{ lg: "center" }}
       alignItems={{ lg: "center" }}
       flexDirection={isOdd(index) ? ["row-reverse"] : undefined}
+      gap={5}
     >
       <Box
         width={{ base: "80%", lg: "35%" }}

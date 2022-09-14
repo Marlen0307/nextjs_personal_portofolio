@@ -1,18 +1,19 @@
 import React from "react";
-import { mainPageSections } from "../../../config/data";
+import { mainPageSections } from "../../../config/mainPageSections";
 import LandingPageSection from "../../utils/UiComponents/PageSections";
-import sectionStyles from './sectionstyles.module.css';
+import sectionStyles from "./sectionstyles.module.css";
 
 export default function MainPageSections() {
   return (
     <section className={sectionStyles.seperatedContainer}>
-      {mainPageSections.map((dt, i) => (
+      {mainPageSections.map((pageSection, i) => (
         <LandingPageSection
-          key={dt.title}
-          description={dt.description}
+          key={pageSection.title}
+          description={pageSection.description}
+          sideElement={pageSection.illustrationSide || null}
           index={i}
-          title={dt.title}
-          image={dt.image}
+          title={pageSection.title}
+          image={pageSection.image}
         />
       ))}
     </section>
