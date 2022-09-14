@@ -3,7 +3,7 @@ import React from "react";
 import { Footer } from "../Footer";
 import Header from "../header";
 
-export default function Main({ children }) {
+export default function Main({ children }: { children: React.ReactElement }) {
   return (
     <>
       <Header />
