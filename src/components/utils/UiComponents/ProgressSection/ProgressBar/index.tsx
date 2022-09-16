@@ -28,12 +28,15 @@ export default function AnimatedProgressBar({
             {label}
           </Text>
         </Box>
-        <div
+        <Box
           className={`${progressBarStyles.progressLine} ${progressBarStyles.html}`}
         >
           {animate && (
             <Text
               as={"span"}
+              _dark={{
+                backgroundColor: "#fff",
+              }}
               sx={{
                 width: animate ? progressBarVal : 0,
                 backgroundColor: color,
@@ -43,7 +46,7 @@ export default function AnimatedProgressBar({
               }}
             ></Text>
           )}
-        </div>
+        </Box>
       </Box>
     </motion.div>
   );
