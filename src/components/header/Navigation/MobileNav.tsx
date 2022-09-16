@@ -19,6 +19,10 @@ export default function MobileNav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
+  const closeMobileDrawer = () => {
+    setTimeout(onClose, 50);
+  };
+
   return (
     <Hide above="lg">
       <IconButton
@@ -49,7 +53,11 @@ export default function MobileNav() {
             <Flex direction={"column"}>
               {Children.toArray(
                 pages.map((page: SitePages) => (
-                  <NavigationItem href={page.slug} label={page.name} />
+                  <NavigationItem
+                    href={page.slug}
+                    label={page.name}
+                    onClickCallback={closeMobileDrawer}
+                  />
                 ))
               )}
             </Flex>
