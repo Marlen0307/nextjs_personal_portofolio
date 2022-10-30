@@ -1,42 +1,37 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
-import Image from "next/image";
-import React, { ReactElement } from "react";
+import { Box, Heading, Text } from '@chakra-ui/react';
+import Image from 'next/image';
+import React, { ReactElement } from 'react';
+import { MainPageSection } from '../../../../config/mainPageSections';
 
 interface LandingPageSectionType {
   index: number;
-  title: string;
-  description: string;
-  sideElement?: ReactElement;
-  image?: string;
+  pageSection: MainPageSection;
 }
 
-export default function LandingPageSection({
-  index,
-  title,
-  description,
-  sideElement,
-  image,
-}: LandingPageSectionType) {
+export default function LandingPageSection({ index, pageSection }: LandingPageSectionType) {
+  const { illustrationSide, description, title, image, customSection } = pageSection;
+  if (customSection) {
+    //* custom section will be a custom design, that is why it is returned here
+    return <>{customSection}</>;
+  }
   const isOdd = (num: number) => num % 2 === 1;
-  console.log(isOdd(index));
-  
   return (
     <Box
-      display={{ lg: "flex" }}
-      justifyContent={{ lg: "center" }}
-      alignItems={{ lg: "center" }}
-      flexDirection={isOdd(index) ? ["row-reverse"] : undefined}
+      display={{ lg: 'flex' }}
+      justifyContent={{ lg: 'center' }}
+      alignItems={{ lg: 'center' }}
+      flexDirection={isOdd(index) ? ['row-reverse'] : undefined}
       gap={5}
       my={5}
     >
       <Box
-        width={{ base: "100%",sm: '80%',lg: "40%" }}
-        mx={{ base: "auto", lg: "0" }}
+        width={{ base: '100%', sm: '80%', lg: '40%' }}
+        mx={{ base: 'auto', lg: '0' }}
         my={{ base: 5, lg: 0 }}
-        paddingRight={{ ...(isOdd(index) && { lg: "10" }) }}
-        paddingLeft={{ ...(isOdd(index) && { lg: "10" }) }}
+        paddingRight={{ ...(isOdd(index) && { lg: '10' }) }}
+        paddingLeft={{ ...(isOdd(index) && { lg: '10' }) }}
       >
-        {sideElement && <>{sideElement}</>}
+        {illustrationSide && <>{illustrationSide}</>}
         {image && (
           <Image
             src={image}
@@ -49,7 +44,7 @@ export default function LandingPageSection({
         )}
       </Box>
 
-      <Box w={{ lg: "50%" }}>
+      <Box w={{ lg: '50%' }}>
         <Heading as="h1">{title}</Heading>
         <Text py="4">{description}</Text>
       </Box>

@@ -7,14 +7,7 @@ export default function MainPageSections() {
   return (
     <section className={sectionStyles.seperatedContainer}>
       {mainPageSections.map((pageSection, i) => (
-        <LandingPageSection
-          key={pageSection.title}
-          description={pageSection.description}
-          sideElement={pageSection.illustrationSide || null}
-          index={i}
-          title={pageSection.title}
-          image={pageSection.image}
-        />
+        <LandingPageSection key={pageSection.title} index={i} pageSection={pageSection} />
       ))}
     </section>
   );
